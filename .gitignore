@@ -7,7 +7,7 @@
 *.pdf
 *.ps
 *.jpeg
-*.eps
+*.eps 
 
 #Root
 *.root
