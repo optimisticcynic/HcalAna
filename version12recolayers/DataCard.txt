@@ -1,0 +1,87 @@
+
+#This is the data card for the input of M2M3 analysis and TopMassFitter 
+# Auther : SCKao - UMN
+#
+
+# root files directory
+#RootFiles = /local/cms/user/sckao/hcalElectron/
+RootFiles = /local/cms/user/sckao/hcalMuon/
+#RootFiles = /local/cms/user/sckao/
+# Folder to store results
+Path = 123_000
+
+
+
+#type null lowercase if you don't want stuff to be added
+#so these will have three  numbers, first describes catagory of the number, 0 ignore it, 1 w decay gen, 2 jet gen, 3 total gen, 4 reconstructed
+# second number is the dr value, third is the number of layer, 0 being layer one, 1 being layer 2, last 1 means abs, 2 means real, only controlled by parameter 1
+
+#note that there are 6 of these and they start at 0
+histonum = 0
+
+parameter1 = (1, 5, 0, 1)
+parameter2 = (1, 5, 1)
+parameter3 = (1, 5, 2)
+
+sparameter1 = (2, 3, 0, 1)
+sparameter2 = (2, 3, 1)
+sparameter3 = (2, 3, 2)
+ 
+parameterh1 = (1, 1, 0, 1)
+parameterh2 = (1, 2, 1)
+parameterh3 = (1, 3, 2)
+
+sparameterh1 = (2, 1, 0, 1)
+sparameterh2 = (2, 2, 1)
+sparameterh3 = (2, 3, 2)
+
+#so the negatives are here
+nparameter1 = (1, 0, 0)
+nparameter2 = (1, 0, 1)
+nparameter3 = (1, 0, 2)
+
+snparameter1 = (2, 1, 0)
+snparameter2 = (2, 1, 1)
+snparameter3 = (2, 1, 2)
+ 
+nparameterh1 = (1, 1, 0)
+nparameterh2 = (1, 1, 1)
+nparameterh3 = (1, 1, 2)
+
+snparameterh1 = (2, 1, 0)
+snparameterh2 = (2, 1, 1)
+snparameterh3 = (2, 1, 2)
+ 
+comp1 = 555_000
+comp2 = 555_000
+
+
+# histogram name
+HistoName = 123_000
+
+# plot type : png / gif / eps / jpg / pdf 
+PlotType = png
+
+# Files , '+' is the flag for TChain 
+#TheData = ( slhc_tt_ele )
+TheData = ( slhc_tt_mu )
+#TheData = ( data+ )
+#dataChain = ( shcal_tt_zs1_0, shcal_tt_zs1_1, shcal_tt_zs1_2, shcal_tt_zs1_3 )
+#dataChain = ( shcal_tt_0, shcal_tt_1, shcal_tt_2 , shcal_tt_3 )
+
+# 1: Fill and write histogram  2: Read and Draw histogram
+Module = 2
+
+ProcessEvents = -1
+
+# muon       minPt, maxPt, eta 
+MuonCuts = ( 30,    999,  0.8  )
+# Jet/MET     Pt,   Eta, NDau,   CEF,  NEF,   CHF,   NHF,  MEF
+JetCuts = (   35.,  0.8,    5,   0.9,  0.9,  0.99,  0.99,  0.9 )
+# NVertices Range 
+#           minNVtx, maxNVtx 
+VtxCuts = (   30   , 50 )
+
+
+
+
