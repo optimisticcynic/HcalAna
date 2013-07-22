@@ -87,48 +87,27 @@ private:
    	  }
    };
    
-   InputDataStruct<float> giso;
-   /*float giso1[100][5];//deposted iso reality
-   float giso2[100][5];
-   float giso3[100][5];
-   float giso4[100][5];
-   float giso5[100][5];
-   */
-
-
-   InputDataStruct<int> gisoh;
-   
-   int gisoh1[100][5];//deposted iso hit reality
-   int gisoh2[100][5];
-   int gisoh3[100][5];
-    int gisoh4[100][5];
-   int gisoh5[100][5];
-   
+   InputDataStruct<float> iso;
+   InputDataStruct<int> isoh;
    
    InputDataStruct<float> riso;
-   
-   float riso1[100][5];//deposted iso reconstructed
-   float riso2[100][5];
-   float riso3[100][5];
-   float riso4[100][5];
-   float riso5[100][5];
-   
-   
    InputDataStruct<int> risoh;
-   int risoh1[100][5];//deposted iso reconstructed
-   int risoh2[100][5];
-   int risoh3[100][5];
-   int risoh4[100][5];
-   int risoh5[100][5];
-   
+      
    string hfolder ;
    string plotType ;
    string comp1;
    string comp2;
-   vector <string> comp;
    string ofile;
    string ifile;
+   string sub;
+   bool isreco; 
+   int rec;
    int type;
+   int GenhE;
+   float maxdr;
+   vector <string> comp;
+   int test[20];//should be able to test to see if the muon has been counted. 
+   
    //string parx;
    int ProcessEvents ;
    string datafileName ;
@@ -137,16 +116,20 @@ private:
    map<string, float[100][5]>adding;
    
    // Giving variables to hold value from ntuple
-   int nMu, nJets, nGen ;
+   int nMu, nJets, nGen, nlep;
    int bid[MAXBI], mom[MAXBI];
    int hisn;
    int offby;
    int tnum;
    int tgen;
+   double drval;
+   float gen_hcalE[50][5], gen_hcaldR[50][5];
+   float regedr;
+   int asub;// this decides whether we are hopefully subtracting the closest energy
    
-   float  genE[10];
+   float  genE[10],lepE[10];
    
-   float muPx[MAXMU], muPy[MAXMU], muPz[MAXMU], muE[MAXMU], jetE[MAXJET],jetPx[MAXJET], jetPy[MAXJET], jetPz[MAXJET];
+   float lepPx[MAXMU], lepPy[MAXMU], lepPz[MAXMU], muE[MAXMU], jetE[MAXJET],jetPx[MAXJET], jetPy[MAXJET], jetPz[MAXJET];
    float bPx[MAXBI], bPy[MAXBI], bPz[MAXBI], bE[MAXBI];
    TTree* tr ;
 
@@ -161,7 +144,7 @@ private:
    
    // Define the histograms
    TH1D* h_nMu  ;
-   TH1D* h_muPt ;
+   TH1D* h_lepPt ;
    TH1D* h_nJets;
    TH1D* h_Jets;
    TH1D* h_JetsPt;
